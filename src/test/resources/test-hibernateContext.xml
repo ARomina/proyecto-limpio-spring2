@@ -12,7 +12,8 @@
 			<props>
 				<prop key="hibernate.validator.apply_to_ddl">false</prop>
 				<prop key="hibernate.validator.autoregister_listeners">false</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
 				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
@@ -25,11 +26,18 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="dataSource"
+	<!--<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/db-test" />
 		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>-->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:db_aplicacion" />
+		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>
 	<bean id="transactionManager"
